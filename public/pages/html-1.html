@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>HTML #1</title>
+
+    <link rel="stylesheet" href="./html-1.css">
+    <link rel="stylesheet"
+    href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <em>Previously with alex et manon...</em>
+
+      <h1>Épisode 1 - Tu vas baliser !</h1>
+
+      <p>On a vu la balise paragraphe :</p>
+      <pre><code class="html">
+  &lt;p&gt;Je suis un paragraphe&lt;/p&gt;
+      </code></pre>
+
+      <p>Mais aussi la balise <code>&lt;strong&gt;</code> qui sert à mettre en avant un contenu :</p>
+      <pre><code class="html">
+  &lt;strong&gt;C'est du costaud 💪&lt;/strong&gt;
+      </code></pre>
+
+      <p>On a abordé la notion de <em>inline</em> et <em>block</em> avec les balise <code>&lt;span&gt;</code> et <code>&lt;div&gt;</code> :</p>
+      <pre><code class="html">
+  &lt;div&gt;Je prends toute la largeur de mon parent car J'AI DES CHOSES À DIRE !&lt;/div&gt;
+  &lt;span&gt;Je m'adapte à la taille de mon contenu&lt;/span&gt;
+  &lt;span&gt;Bah moi aussi !&lt;/span&gt;
+      </code></pre>
+
+      <p>Last but not least, un petit retour à la ligne grâce à la balise <code>&lt;br&gt;</code> :</p>
+      <pre><code class="html">
+  &lt;!-- C'est un peu comme saute-mouton, mais sans les moutons --&gt;
+  &lt;span&gt;Résiste !&lt;/span&gt;
+  &lt;br&gt;
+  &lt;span&gt;Prouve que tu existe !&lt;/span&gt;
+  &lt;!-- Au fait, je suis un commentaire qui ne s'affichera pas sur la page ! --&gt;
+      </code></pre>
+
+      <h1>Épisode 2 - La classe à Dallas</h1>
+
+      <p>Les classes <em>CSS</em> servent à styliser les balise <em>HTML</em>. Le code <em>CSS</em> s'écrit la plus part du temps dans un fichier <code>.css</code> distinct qu'il faut lier au fichier <code>.html</code> avec une balise <code>&lt;link&gt;</code> dans le <code>&lt;head&gt;</code> :</p>
+
+      <pre><code class="html">
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Le titre de ma page&lt;/title&gt;
+
+      &lt;!-- Ici je dis à ma page HTML ou trouver le fichier .css --&gt;
+      &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;!-- Le corps de ma page --&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+      </code></pre>
+
+      <p>Pour avoir la classe, il nous faut un attribut <strong>class</strong> :</p>
+      <pre><code class="html">
+  &lt;div class="fond-noir"&gt;Je n'ai pas mauvais fond...&lt;/div&gt;
+      </code></pre>
+
+      <p>...mais il nous faut également du code <em>CSS</em> à appliquer sur cette balise :</p>
+      <pre><code class="css">
+  /* ça, c'est un commentaire */
+  .fond-noir {
+    background: #000;
+  }
+      </code></pre>
+
+      <p>Pour être à l'aise il faut prendre de la marge ! Petit rappel sur le <em>padding</em> et le <em>margin</em> :</p>
+      <img src="difference_between_margin_and_padding_fit_big_width.jpg" class="img-responsive">
+
+      <pre><code class="html">
+  &lt;div class="marge"&gt;Je me suis toujours sentie en marge de la société...&lt;/div&gt;
+      </code></pre>
+
+      <pre><code class="css">
+  .marge {
+    margin: 10px;  /* marges externes */
+    padding: 15px; /* marges internes */
+  }
+      </code></pre>
+
+      <h1>Pour aller plus <s>hauuut, aller plus hauuuuut</s> loin</h1>
+
+      <ul>
+        <li><a href="https://developer.mozilla.org/fr/Apprendre/HTML/Cheatsheet">Mozilla - Cheatsheet HTML</a></li>
+        <li><a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3">OpenClassrooms - Apprenez à créer votre site web avec HTML5 et CSS3</a></li>
+        <li><a href="https://www.w3schools.com/html/default.asp">w3schools.com</a></li>
+        <li><a href="https://hostingfacts.com/html-cheat-sheet/">HTML Cheat Sheet</a></li>
+        <li><a href="https://websitesetup.org/css3-cheat-sheet/">CSS3 Cheat Sheet</a></li>
+      </ul>
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
