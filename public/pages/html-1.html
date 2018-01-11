@@ -10,6 +10,7 @@
     <div class="container">
       <em>Previously with alex et manon...</em>
 
+      <!-- Episode 1 -->
       <h1>Épisode 1 - Tu vas baliser !</h1>
 
       <p>On a vu la balise paragraphe :</p>
@@ -38,6 +39,7 @@
   &lt;!-- Au fait, je suis un commentaire qui ne s'affichera pas sur la page ! --&gt;
       </code></pre>
 
+      <!-- Episode 2 -->
       <h1>Épisode 2 - La classe à Dallas</h1>
 
       <p>Les classes <em>CSS</em> servent à styliser les balise <em>HTML</em>. Le code <em>CSS</em> s'écrit la plus part du temps dans un fichier <code>.css</code> distinct qu'il faut lier au fichier <code>.html</code> avec une balise <code>&lt;link&gt;</code> dans le <code>&lt;head&gt;</code> :</p>
@@ -83,6 +85,54 @@
   }
       </code></pre>
 
+      <p>Si besoin on peut également régler chacun des espacements (<em>margin</em> ou <em>padding</em>) de manière indépendante :</p>
+
+      <pre><code class="css">
+  .marge-separees {
+    margin-top: 10px;    /* 10 pixels en haut */
+    margin-bottom: 20px; /* 20 pixels en bas */
+    margin-left: 30px;   /* 30 pixels à gauche */
+    margin-right: 25px;  /* 25 pixels à droite */
+  }
+      </code></pre>
+
+      <!-- Episode 3 -->
+      <h1>Épisode 3 - Émile et Images</h1>
+
+      <p>La manière la plus simple d'insérer une image dans une page <em>HTML</em> est d'utiliser la balise <code>&lt;img&gt;</code>. On renseigne alors l'url de l'image à travers l'attribut <strong>src</strong>.
+      <br>Comme la plupart des balises on peut lui appliquer des classes <em>CSS</em> afin de changer son style (eg. modifier sa taille, lui ajouter une bordure, etc.).</p>
+
+      <pre><code class="html">
+  &lt;img class="img-reponsive" src="http://www.sciences-po.asso.fr/images/upload/emile_5_webbd_couv.jpg" alt="Cette image est intéressante"&gt;
+      </code></pre>
+
+      <p><em><u>Note</u>: Il est également important de renseigner l'attribut <strong>alt</strong> avec une texte descriptif afin d'offrir une alternative acceptable lorsque celle-ci ne peut pas se charger correctement (eg. sur une tablette de lecture pour aveugle).</em></p>
+
+      <p>Afin de rendre les images plus pratiques à manipuler en <em>CSS</em> on utilise généralement la classe suivante qui "standardise" le comportement des images :</p>
+
+      <pre><code class="css">
+  .img-responsive {
+    max-width: 100%; /* l'image ne peut pas prendre plus de 100% de la largeur de sont parent */
+    height: auto;    /* hauteur calculé automatiquement */
+    display: block;  /* force l'image a se comporter comme un élément block */
+  }
+      </code></pre>
+
+      <p>Il est également possible d'utiliser les images comme fond d'une balise. Pour cela on utilisera une classe <em>CSS</em> et l'attribut <strong>background</strong> :</p>
+
+      <pre><code class="html">
+  &lt;div class="image-fond"&gt;Ce n'est pas le fond du sujet Terrance !&lt;/div&gt;
+      </code></pre>
+
+      <pre><code class="css">
+  .image-fond {
+    background: url('https://i.ytimg.com/vi/NuAGCdz2qDo/hqdefault.jpg');
+  }
+      </code></pre>
+
+      <a href="https://developer.mozilla.org/fr/docs/Web/CSS/background">Plus d'information sur la propriété <strong>background</strong></a>
+
+      <!-- Fin -->
       <h1>Pour aller plus <s>hauuut, aller plus hauuuuut</s> loin</h1>
 
       <ul>
