@@ -106,7 +106,7 @@
   &lt;img class="img-reponsive" src="http://www.sciences-po.asso.fr/images/upload/emile_5_webbd_couv.jpg" alt="Cette image est intéressante"&gt;
       </code></pre>
 
-      <p><em><u>Note</u>: Il est également important de renseigner l'attribut <strong>alt</strong> avec une texte descriptif afin d'offrir une alternative acceptable lorsque celle-ci ne peut pas se charger correctement (eg. sur une tablette de lecture pour aveugle).</em></p>
+      <p><em><u>Note</u>: Il est également important de renseigner l'attribut <strong>alt</strong> avec un texte descriptif afin d'offrir une alternative acceptable lorsque celle-ci ne peut pas se charger correctement (eg. sur une tablette de lecture pour aveugle).</em></p>
 
       <p>Afin de rendre les images plus pratiques à manipuler en <em>CSS</em> on utilise généralement la classe suivante qui "standardise" le comportement des images :</p>
 
@@ -131,6 +131,38 @@
       </code></pre>
 
       <a href="https://developer.mozilla.org/fr/docs/Web/CSS/background">Plus d'information sur la propriété <strong>background</strong></a>
+
+      <!-- Episode 4 -->
+      <h1>Épisode 4 - Mais que fait la police ?</h1>
+
+      <p>Il est possible de personnaliser la police utilisée dans une balise <em>HTML</em> grâce à l'attribute <em>CSS</em> <strong>font-family</strong>. Par exemple, on peut utiliser la police <em>Arial</em> de cette manière :</p>
+
+      <pre><code class="html">
+  &lt;div class="arielle"&gt;Je viens d’avoir seize ans, je ne suis plus une petite fille !&lt;/div&gt;
+      </code></pre>
+
+      <pre><code class="css">
+  .arielle {
+    font-family: Arial;
+  }
+      </code></pre>
+
+      <p>Cependant, dans l'état il n'est possible d'utiliser uniquement les police installée sur l'ordinateur de l'utilisateur. Or, celui-ci n'en possède généralement que très peu (les polices système). De plus, celles-ci varient forcement entre les différents systèmes d'exploitation (Windows, OSX, Linux, etc.). C'est pourquoi il est souvent plus sûr d'utiliser des polices externes. Le plus simple reste d'utiliser Google Font (ou un service similaire) qui propose un grand nombre de polices gratuitement.</p>
+
+      <p>Pour cela on doit généralement intégrer une balise <code>&lt;link&gt;</code> supplémentaire dans le <code>&lt;head&gt;</code> avant de pouvoir utiliser la dite police. Voici un exemple avec le <em>Roboto</em> :</p>
+
+      <pre><code class="html">
+  &lt;!-- Ceci est à placer dans le &lt;head&gt --&gt;
+  &lt;link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"&lt;
+      </code></pre>
+
+      <pre><code class="css">
+  .police-personne-ne-bouge {
+    font-family: 'Roboto';
+  }
+      </code></pre>
+
+      <p><em><u>Note</u>: Malheureusement, <strong>Comic Sans</strong> fait partie des polices système...</em></p>
 
       <!-- Fin -->
       <h1>Pour aller plus <s>hauuut, aller plus hauuuuut</s> loin</h1>
