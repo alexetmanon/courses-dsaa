@@ -164,6 +164,67 @@
 
       <p><em><u>Note</u>: Malheureusement, <strong>Comic Sans</strong> fait partie des polices système...</em></p>
 
+      <!-- Episode 5 -->
+      <h1>Épisode 5 - Le responsive 1/3 <small>nan mais allo quoi ?!</small></h1>
+
+      <p>Tout d'abord, afin d'éviter les complications, il est important de fixer l'échelle de rendu dans les navigateur moderne.<br>Pour cela on utilise la balise <code>&lt;meta&gt;</code> suivante :</p>
+
+      <pre><code class="html">
+  &lt;!-- Ceci est à placer dans le &lt;head&gt --&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+      </code></pre>
+
+      <p>Une fois ce correctif appliqué nous pouvons commencer à penser responsive. Historiquement le responsive est basé sur les valeurs de tailles relatives (eg. les pourcentages). En dimentionant les objets sous à l'aide de pourcentages on peut facilement adapter la taille du contenu suivant la taille de l'écran.</p>
+
+      <p>Dans le chapite 3 nous avons utilisé la classe <em>CSS</em> <code>.img-responsive</code> qui a pour principal objectif de limiter la taille de l'image en largeur à 100% de sa taille maximale. La taille verticale est quant à elle calculée automatiquement. Ceci à pour effet d'adapter l'image à la largeur de la page tant que celle-ci (l'image) est plus grande que son conteneur (la page). Dans le cas contraire, l'image ayant atteint sa taille maximale, ne "grandira" plus.</p>
+
+      <p>En utilisant ce même concept nous pouvons créer des colonnes de tailles relatives. Cette méthode est quelque peu dépassée (cf. <em>flex</em> et <em>grid</em>, dans le prochain chapitre), mais permet de bien cerner les concepts de <em>block</em>, <em>inline</em> et surtout <em>inline-block</em>.</p>
+
+      <p>Dans l'exemple suivant nous créons deux <code>&lt;div&gt;</code> de hauteur <em>200px</em> et de largeur <em>50%</em>. Ainsi, chaque colonne occupe la moitiée de l'espace disponible dans le parent. Notons que nous avons également modifié l'attribut <em>display</em> afin de permettre à nos deux <code>&lt;div&gt;</code> de se trouver côte à côte. Sans cela, le comportement par défaut (eg. <em>block</em>) aurai forcé le retour à la ligne après la première boite. Nous ne pouvons pas non plus utiliser <em>inline</em>, car ce comportement ne permet pas de définir une hauteur spécifique. Il nous faut donc utiliser <em>inline-block</em> qui cumule les deux comportements : définir une hauteur personnalisée et placer les boites sur la même ligne (tant que faire se peut).</p>
+
+      <pre><code class="html">
+  &lt;!-- attention à ne pas laisser d'espace entre les div --&gt;
+  &lt;div class="column"&gt;Colonne de gauche&lt;/div&gt;&lt;div class="column"&gt;Colonne de droite&lt;/div&gt;
+      </code></pre>
+
+      <pre><code class="css">
+  .column {
+    display: inline-block;
+    height: 200px;
+    width: 50%;
+  }
+      </code></pre>
+
+      <!-- Episode 6 -->
+      <h1>Épisode 6 - Le responsive 2/3</h1>
+
+      <p>Les dimensions relatives ne sont pas le seul outil du Responsive Web Design (RWD). Les <em>Media Queries</em> sont un outil très utile pour modifier le contenu suivant différents critères.</p>
+
+      <p>Nous pouvons par exemple reprendre le cas précédent pour lui appliquer un traitement spécifique sur mobile.<br>Le code suivant permet de retrouver le comportement classique des <code>&lt;div&gt;</code> sur un terminal mobile.</p>
+
+      <pre><code class="css">
+  /* D'abord, on définit un cas général... */
+  .column {
+    display: inline-block;
+    height: 200px;
+    width: 50%;
+  }
+
+  /* ...puis on applique une règle spécifique pour tous
+     les écrans qui ont une taille maximale de 768px */
+  @media only screen and (max-width: 768px) {
+    .column {
+      display: block;
+      width: 100%;
+    }
+  }
+      </code></pre>
+
+      <p>Il est possible de faire tout un tas de choses dans les <em>Media Query</em>, comme masquer une image sur mobile, afficher un menu spécifique, etc.</p>
+
+      <!-- Episode 7 -->
+      <h1>Épisode 7 - Le responsive 3/3 <small>réflexe !</small></h1>
+
       <!-- Fin -->
       <h1>Pour aller plus <s>hauuut, aller plus hauuuuut</s> loin</h1>
 
@@ -173,6 +234,7 @@
         <li><a href="https://www.w3schools.com/html/default.asp">w3schools.com</a></li>
         <li><a href="https://hostingfacts.com/html-cheat-sheet/">HTML Cheat Sheet</a></li>
         <li><a href="https://websitesetup.org/css3-cheat-sheet/">CSS3 Cheat Sheet</a></li>
+        <li><a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp">Media Queries</a></li>
       </ul>
     </div>
 
