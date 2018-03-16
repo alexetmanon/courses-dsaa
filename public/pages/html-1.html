@@ -225,6 +225,57 @@
       <!-- Episode 7 -->
       <h1>Épisode 7 - Le responsive 3/3 <small>réflexe !</small></h1>
 
+      <p>Comme énoncé durant l'épisode 5, il existe aujourd'hui des techniques modernes permetant d'intégrer plus proprement les différents agencements. Pour le dernier opus de notre épopée responsive nous allons aborder <em>Flexbox</em>.</p>
+
+      <p><em>Flexbox</em> permet de définir des layouts "flexibles". Les possibilités sont nombreuses : alignement vertical, gestion des directions, grilles, alignement particulier d'un seul élément, etc.</p>
+
+      <a href="https://www.w3schools.com/css/css3_flexbox.asp">Plus d'information sur <em>Flexbox</em></a>
+
+      <p><em>Flexbox</em> repose sur le concept de "conteneur/éléments". Les éléments placés dans un conteneur <strong>flex</strong> vont avoir un comportement particulier.<br>Dans l'exemple suivant on définit deux colonnes comme durant l'épisode 5.</p>
+
+      <pre><code class="html">
+  &lt;!-- nul besoin de se soucier des d'espaces entre les div ! --&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="column"&gt;Colonne de gauche&lt;/div&gt;
+    &lt;div class="column"&gt;Colonne de droite&lt;/div&gt;
+  &lt;/div&gt;
+      </code></pre>
+
+      <pre><code class="css">
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .column {
+    height: 200px;
+  }
+      </code></pre>
+
+      <p>Comme nous l'avons vu durant l'épisode 2 avec les marges, il est relativement facile de centre un élément horizontalement, mais dès qu'il est question de centrage vertical le sujet est plus épineux. Ce n'est <small>(presque)</small> plus le cas avec <em>Flexbox</em> !<br>Le code suivant permet de centrer verticalement et horizontalement un élément.</p>
+
+      <pre><code class="html">
+  &lt;div class="container"&gt;
+    &lt;div class="square"&gt;Je suis un carré bleu centré ♥️&lt;/div&gt;
+  &lt;/div&gt;
+      </code></pre>
+
+      <pre><code class="css">
+  .container {
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .square {
+    height: 150px;
+    width: 150px;
+    background: #1e90ff;
+    color: #fff;
+  }
+      </code></pre>
+
       <!-- Fin -->
       <h1>Pour aller plus <s>hauuut, aller plus hauuuuut</s> loin</h1>
 
@@ -235,6 +286,8 @@
         <li><a href="https://hostingfacts.com/html-cheat-sheet/">HTML Cheat Sheet</a></li>
         <li><a href="https://websitesetup.org/css3-cheat-sheet/">CSS3 Cheat Sheet</a></li>
         <li><a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp">Media Queries</a></li>
+        <li><a href="https://www.w3schools.com/css/css3_flexbox.asp">Flexbox</a></li>
+        <li><a href="https://www.w3schools.com/css/css_grid.asp">Grid Layout</a></li>
       </ul>
     </div>
 
