@@ -3,6 +3,8 @@
     <title>DSAA #1 - 2018/2019</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+    href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
   </head>
   <body>
     <div class="container">
@@ -41,10 +43,178 @@
           </div>
 
           <div class="py-3">
-            <span class="alert alert-warning mt-3" role="alert">Coming soon...</span>
+            <h3>Quelques balises de base</h3>
+
+            <p>Les balises HTML (aussi appelées "tag") s'écrivent dans les fichier <code>.html</code></p>
+            <p>La liste exhaustive de toutes les balises HTML existantes est disponible sur <a href="https://www.w3schools.com/tags/default.asp">w3schools.com</a></p>
+
+            <pre><code class="html">
+  &lt;p&gt;Je suis un paragraphe&lt;/p&gt;
+  &lt;strong&gt;Je suis en exergue, car je suis IMPORTANT !&lt;/strong&gt;
+
+  &lt;!-- Je suis un commentaire invisible pour l'utilisateur final --&gt;
+  &lt;div&gt;Je prends toute la largeur de mon parent car J'AI DES CHOSES À DIRE !&lt;/div&gt;
+  &lt;span&gt;Je m'adapte à la taille de mon contenu, modestement&lt;/span&gt;
+            </code></pre>
+
+            <h3>Les classes CSS</h3>
+
+            <p>Les classes <em>CSS</em> servent à styliser les balise <em>HTML</em>. Le code <em>CSS</em> s'écrit la plus part du temps dans un fichier <code>.css</code> distinct qu'il faut lier au fichier <code>.html</code> avec une balise <code>&lt;link&gt;</code> dans le <code>&lt;head&gt;</code> :</p>
+
+            <pre><code class="html">
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Le titre de ma page&lt;/title&gt;
+
+      &lt;!-- Ici je dis à ma page HTML ou trouver le fichier .css --&gt;
+      &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;!-- Le corps de ma page --&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+            </code></pre>
+
+            <p>Pour avoir la classe, il nous faut un attribut <strong>class</strong> :</p>
+            <pre><code class="html">
+  &lt;div class="fond-noir"&gt;Je n'ai pas mauvais fond...&lt;/div&gt;
+            </code></pre>
+
+            <p>...mais il nous faut également du code <em>CSS</em> à appliquer sur cette balise :</p>
+            <pre><code class="css">
+  /* ça, c'est un commentaire */
+  .fond-noir {
+    background: #000;
+  }
+            </code></pre>
+
+            <p>Pour être à l'aise il faut prendre de la marge ! Petit rappel sur le <em>padding</em> et le <em>margin</em> :</p>
+            <img src="../../images/difference_between_margin_and_padding_fit_big_width.jpg" class="img-responsive">
+
+            <pre><code class="html">
+  &lt;div class="marge"&gt;Je me suis toujours sentie en marge de la société...&lt;/div&gt;
+            </code></pre>
+
+            <pre><code class="css">
+  .marge {
+    margin: 10px;  /* marges externes */
+    padding: 15px; /* marges internes */
+  }
+            </code></pre>
+
+            <p>Si besoin on peut également régler chacun des espacements (<em>margin</em> ou <em>padding</em>) de manière indépendante :</p>
+
+            <pre><code class="css">
+  .marge-separees {
+    margin-top: 10px;    /* 10 pixels en haut */
+    margin-bottom: 20px; /* 20 pixels en bas */
+    margin-left: 30px;   /* 30 pixels à gauche */
+    margin-right: 25px;  /* 25 pixels à droite */
+  }
+            </code></pre>
+
+            <h3>Les images</h3>
+
+            <p>La manière la plus simple d'insérer une image dans une page <em>HTML</em> est d'utiliser la balise <code>&lt;img&gt;</code>. On renseigne alors l'url de l'image à travers l'attribut <strong>src</strong>.
+              <br>Comme la plupart des balises on peut lui appliquer des classes <em>CSS</em> afin de changer son style (eg. modifier sa taille, lui ajouter une bordure, etc.).</p>
+
+              <pre><code class="html">
+  &lt;img class="img-reponsive" src="http://www.sciences-po.asso.fr/images/upload/emile_5_webbd_couv.jpg" alt="Cette image est intéressante"&gt;
+              </code></pre>
+
+              <p><em><u>Note</u>: Il est également important de renseigner l'attribut <strong>alt</strong> avec un texte descriptif afin d'offrir une alternative acceptable lorsque celle-ci ne peut pas se charger correctement (eg. sur une tablette de lecture pour aveugle).</em></p>
+
+              <p>Afin de rendre les images plus pratiques à manipuler en <em>CSS</em> on utilise généralement la classe suivante qui "standardise" le comportement des images :</p>
+
+              <pre><code class="css">
+  .img-responsive {
+    max-width: 100%; /* l'image ne peut pas prendre plus de 100% de la largeur de sont parent */
+    height: auto;    /* hauteur calculé automatiquement */
+    display: block;  /* force l'image a se comporter comme un élément block */
+  }
+              </code></pre>
+
+              <p>Il est également possible d'utiliser les images comme fond d'une balise. Pour cela on utilisera une classe <em>CSS</em> et l'attribut <strong>background</strong> :</p>
+
+              <pre><code class="html">
+  &lt;div class="image-fond"&gt;Ce n'est pas le fond du sujet Terrance !&lt;/div&gt;
+              </code></pre>
+
+              <pre><code class="css">
+  .image-fond {
+    background: url('https://i.ytimg.com/vi/NuAGCdz2qDo/hqdefault.jpg');
+  }
+              </code></pre>
+
+              <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/CSS/background">Plus d'information sur la propriété <strong>background</strong></a>
+              </p>
+
+              <h3>Les polices de caractères</h3>
+
+              <p>Il est possible de personnaliser la police utilisée dans une balise <em>HTML</em> grâce à l'attribute <em>CSS</em> <strong>font-family</strong>. Par exemple, on peut utiliser la police <em>Arial</em> de cette manière :</p>
+
+              <pre><code class="html">
+  &lt;div class="arielle"&gt;Je viens d’avoir seize ans, je ne suis plus une petite fille !&lt;/div&gt;
+              </code></pre>
+
+              <pre><code class="css">
+  .arielle {
+    font-family: Arial;
+  }
+              </code></pre>
+
+              <p>Cependant, dans l'état il n'est possible d'utiliser uniquement les police installée sur l'ordinateur de l'utilisateur. Or, celui-ci n'en possède généralement que très peu (les polices système). De plus, celles-ci varient forcement entre les différents systèmes d'exploitation (Windows, OSX, Linux, etc.). C'est pourquoi il est souvent plus sûr d'utiliser des polices externes. Le plus simple reste d'utiliser Google Font (ou un service similaire) qui propose un grand nombre de polices gratuitement.</p>
+
+              <p>Pour cela on doit généralement intégrer une balise <code>&lt;link&gt;</code> supplémentaire dans le <code>&lt;head&gt;</code> avant de pouvoir utiliser la dite police. Voici un exemple avec le <em>Roboto</em> :</p>
+
+              <pre><code class="html">
+  &lt;!-- Ceci est à placer dans le &lt;head&gt --&gt;
+  &lt;link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"&gt;
+              </code></pre>
+
+              <pre><code class="css">
+  .police-personne-ne-bouge {
+    font-family: 'Roboto';
+  }
+              </code></pre>
+
+              <p><em><u>Note</u>: Malheureusement, <strong>Comic Sans</strong> fait partie des polices système...</em></p>
+
+              <p>Vous pouvez aussi utiliser une police depuis un fichier (TTF, OTF, WOFF, etc.). Pour cela il vous faut déclarer la police dans le CSS grace au mot clé <code>@font-face</code> :</p>
+
+              <pre><code class="css">
+  @font-face {
+    font-family: 'Futura';
+    src: url(futura.woff);
+  }
+              </code></pre>
+
+              <p>Il suffit ensuite d'utiliser la nouvelle police, comme une police traditionnelle :</p>
+
+              <pre><code class="css">
+  .back-to-the-future {
+    font-family: 'Futura';
+  }
+              </code></pre>
+
+              <p><code>@font-face</code> permet également de définir différents fichiers pour différentes <a href="https://www.w3schools.com/cssref/css3_pr_font-face_rule.asp">graisses, styles, etc.</a></p>
+
+              <h3>Sources</h3>
+
+              <ul>
+                <li><a href="https://developer.mozilla.org/fr/Apprendre/HTML/Cheatsheet">Mozilla - Cheatsheet HTML</a></li>
+                <li><a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3">OpenClassrooms - Apprenez à créer votre site web avec HTML5 et CSS3</a></li>
+                <li><a href="https://www.w3schools.com/html/default.asp">w3schools.com</a></li>
+                <li><a href="https://hostingfacts.com/html-cheat-sheet/">HTML Cheat Sheet</a></li>
+                <li><a href="https://websitesetup.org/css3-cheat-sheet/">CSS3 Cheat Sheet</a></li>
+              </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
