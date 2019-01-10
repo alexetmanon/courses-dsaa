@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "RobotoCondensed";
+  src: url("fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "RobotoCondensed";
+  font-style: italic;
+  src: url("fonts/Roboto-Italic.ttf");
+}
+
+@font-face {
+  font-family: "RobotoCondensed";
+  font-weight: 700;
+  font-style: italic;
+  src: url("fonts/Roboto-BoldItalic.ttf");
+}
+
+body {
+  font-family: "RobotoCondensed";
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.main-title {
+  color: #0082c3;
+  text-align: center;
+  font-size: 28px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.card {
+  box-shadow: 0.5px 0.5px 10px 2px #c0c0c0;
+  border-radius: 10px;
+  width: 30%;
+}
+
+.card-image {
+  border-radius: 10px 10px 0 0;
+}
+
+.card-title {
+  color: #0082c3;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 24px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+}
+
+.location-icon {
+  width: 18px;
+  margin-right: 10px
+}
+
+.tag-blue {
+  background: #0082c3;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.tag-yellow {
+  background: #ffea28;
+  border-radius: 50px;
+}
+
+.tag-yellow,
+.tag-blue {
+  padding: 3px 8px;
+}
+
+.m-b {
+  margin-bottom: 10px;
+}
+
+/* BONUS */
+.card-header {
+  position: relative;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 38px;
+  font-style: italic;
+  border-radius: 10px 10px 0 0;
+}
