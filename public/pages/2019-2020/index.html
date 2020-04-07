@@ -5,6 +5,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>
+      .element1 {
+        display: flex;
+      }
+      .element1 img {
+        width: 80%;
+      }
+      .element1 p {
+        width: 20%;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -77,9 +88,9 @@
   }
             </code></pre>
 
-            <img src="../../images/css_anatomy.jpg" class="img-fluid mb-3">
+            <p><em><u>Note</u> : Par la suite, nous utilisons quasi-exclusivement les classes CSS pour styliser les éléments de la page.</em></p>
 
-          <!--
+            <h3>Les marges</h3>
 
             <p>Pour être à l'aise il faut prendre de la marge ! Petit rappel sur le <em>padding</em> et le <em>margin</em> :</p>
             <img src="../../images/difference_between_margin_and_padding_fit_big_width.jpg" class="img-responsive">
@@ -112,10 +123,10 @@
               <br>Comme la plupart des balises on peut lui appliquer des classes <em>CSS</em> afin de changer son style (eg. modifier sa taille, lui ajouter une bordure, etc.).</p>
 
               <pre><code class="html">
-  &lt;img class="img-reponsive" src="http://www.sciences-po.asso.fr/images/upload/emile_5_webbd_couv.jpg" alt="Cette image est intéressante"&gt;
+  &lt;img class="img-reponsive" src="http://meme-gag.com/wp-content/uploads/2018/03/meme24882.jpg" alt="Cette image est intéressante"&gt;
               </code></pre>
 
-              <p><em><u>Note</u>: Il est également important de renseigner l'attribut <strong>alt</strong> avec un texte descriptif afin d'offrir une alternative acceptable lorsque celle-ci ne peut pas se charger correctement (eg. sur une tablette de lecture pour aveugle).</em></p>
+              <p><em><u>Note</u> : Il est également important de renseigner l'attribut <strong>alt</strong> avec un texte descriptif afin d'offrir une alternative acceptable lorsque celle-ci ne peut pas se charger correctement (eg. sur une tablette de lecture pour aveugle).</em></p>
 
               <p>Afin de rendre les images plus pratiques à manipuler en <em>CSS</em> on utilise généralement la classe suivante qui "standardise" le comportement des images :</p>
 
@@ -127,72 +138,51 @@
   }
               </code></pre>
 
-              <p>Il est également possible d'utiliser les images comme fond d'une balise. Pour cela on utilisera une classe <em>CSS</em> et l'attribut <strong>background</strong> :</p>
+              <h3>Aligner des éléments avec <code>flexbox</code></h3>
+
+              <div class="py-3">
+                <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">📄 Résumé exhaustif des fonctionnalités de flexbox</a>
+              </div>
+
+              <p>Il est possible d'utiliser <code>flexbox</code> comme système de grille pour découper l'espace et ainsi aligner automatiquement les éléments de la page.<br>Pour cela, on utilisera des balises <code>&lt;div&gt;</code> afin de construire une structure <em>parent + enfant(s)</em>.</p>
 
               <pre><code class="html">
-  &lt;div class="image-fond"&gt;Ce n'est pas le fond du sujet Terrance !&lt;/div&gt;
+  &lt;!-- La balise "parent" contient les balises "enfants" --&gt;
+  &lt;div class="container"&gt;
+    &lt;!-- Je suis un balise enfant. --&gt;
+    &lt;div class="child-1"&gt;
+    &lt;/div&gt;
+    &lt;!-- Moi aussi ! --&gt;
+    &lt;div class="child-2"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
               </code></pre>
 
+              <p><em><u>Note</u> : Les noms des classes n'ont bien entendu aucune importance (comme toujours). Par convention, j'ai l'habitude d'appeler la classe parente <code>container</code> ou <code>wrapper</code>.</em></p>
+
+              <p>Une fois la structure <em>HTML</em> en place nous pouvons utiliser <code>flexbox</code> sur la classe <code>container</code></p>
+
               <pre><code class="css">
-  .image-fond {
-    background: url('https://i.ytimg.com/vi/NuAGCdz2qDo/hqdefault.jpg');
+  .container {
+    display: flex;  /* affiche les éléments en mode flexbox */
   }
               </code></pre>
 
-              <p>
-                <a href="https://developer.mozilla.org/fr/docs/Web/CSS/background">Plus d'information sur la propriété <strong>background</strong></a>
-              </p>
+              <p>A ce stade, les éléments enfants s'alignent horizontalement et l'espace est réparti uniformément entre les éléments qui n'ont pas de taille fixe (pas de <code>width</code> ou <code>height</code>).</p>
 
-              <h3>Les polices de caractères</h3>
-
-              <p>Il est possible de personnaliser la police utilisée dans une balise <em>HTML</em> grâce à l'attribute <em>CSS</em> <strong>font-family</strong>. Par exemple, on peut utiliser la police <em>Arial</em> de cette manière :</p>
-
-              <pre><code class="html">
-  &lt;div class="arielle"&gt;Je viens d’avoir seize ans, je ne suis plus une petite fille !&lt;/div&gt;
-              </code></pre>
+              <p>Afin d'influencer la répartition de l'espace (et donc la taille des enfants). On utilisera la propriété <code>flex</code> sur les enfants</p>
 
               <pre><code class="css">
-  .arielle {
-    font-family: Arial;
+  /* La taille de chaque élément est déterminée par la fraction suivante : flex de l'élément / somme de tout les flex enfants */
+  .child-1 {
+    flex: 2; /* 2/10 = 20% */
+  }
+  .child-2 {
+    flex: 8; /* 8/10 = 80% */
   }
               </code></pre>
 
-              <p>Cependant, dans l'état il n'est possible d'utiliser uniquement les police installée sur l'ordinateur de l'utilisateur. Or, celui-ci n'en possède généralement que très peu (les polices système). De plus, celles-ci varient forcement entre les différents systèmes d'exploitation (Windows, OSX, Linux, etc.). C'est pourquoi il est souvent plus sûr d'utiliser des polices externes. Le plus simple reste d'utiliser Google Font (ou un service similaire) qui propose un grand nombre de polices gratuitement.</p>
-
-              <p>Pour cela on doit généralement intégrer une balise <code>&lt;link&gt;</code> supplémentaire dans le <code>&lt;head&gt;</code> avant de pouvoir utiliser la dite police. Voici un exemple avec le <em>Roboto</em> :</p>
-
-              <pre><code class="html">
-  &lt;!-- Ceci est à placer dans le &lt;head&gt --&gt;
-  &lt;link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"&gt;
-              </code></pre>
-
-              <pre><code class="css">
-  .police-personne-ne-bouge {
-    font-family: 'Roboto';
-  }
-              </code></pre>
-
-              <p><em><u>Note</u>: Malheureusement, <strong>Comic Sans</strong> fait partie des polices système...</em></p>
-
-              <p>Vous pouvez aussi utiliser une police depuis un fichier (TTF, OTF, WOFF, etc.). Pour cela il vous faut déclarer la police dans le CSS grace au mot clé <code>@font-face</code> :</p>
-
-              <pre><code class="css">
-  @font-face {
-    font-family: 'Futura';
-    src: url(futura.woff);
-  }
-              </code></pre>
-
-              <p>Il suffit ensuite d'utiliser la nouvelle police, comme une police traditionnelle :</p>
-
-              <pre><code class="css">
-  .back-to-the-future {
-    font-family: 'Futura';
-  }
-              </code></pre>
-
-              <p><code>@font-face</code> permet également de définir différents fichiers pour différentes <a href="https://www.w3schools.com/cssref/css3_pr_font-face_rule.asp">graisses, styles, etc.</a></p>
-            -->
+              <p><em><u>Note</u> : Afin de composer des designs plus complexes il est possible de disposer des <code>flex</code>, dans des <code>flex</code>, dans des <code>flex</code>, etc.</em></p>
 
               <h3>Sources</h3>
 
@@ -202,7 +192,7 @@
                 <li><a href="https://www.w3schools.com/html/default.asp">w3schools.com</a></li>
                 <li><a href="https://hostingfacts.com/html-cheat-sheet/">HTML Cheat Sheet</a></li>
                 <li><a href="https://websitesetup.org/css3-cheat-sheet/">CSS3 Cheat Sheet</a></li>
-                <!-- <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></li> -->
+                <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></li>
               </ul>
           </div>
         </div>
