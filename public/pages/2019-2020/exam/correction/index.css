@@ -1,0 +1,84 @@
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  text-transform: uppercase;
+}
+
+h3, h5 {
+  color: #6a6b6d;
+}
+
+h1 {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+h2 {
+  font-size: 1.1em;
+}
+
+h3 {
+  margin: 0;
+}
+
+.img-responsive {
+  max-width: 100%; /* l'image ne peut pas prendre plus de 100% de la largeur de sont parent */
+  height: auto;    /* hauteur calculé automatiquement */
+  display: block;  /* force l'image a se comporter comme un élément block */
+}
+
+.container {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+}
+
+.padding-col {
+  padding: 10px;
+}
+
+.container-orga {
+  align-items: center;
+}
+
+.orga-img {
+  flex: 2;
+}
+
+.orga-content {
+  flex: 8;
+  padding-left: 15px;
+}
+
+.orga-content-title {
+  font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.orga-content-link {
+  text-decoration: none;
+  color: #0f79b5;
+}
+
+.row-date {
+  border-bottom: 1px solid #6a6b6d;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.row-date-places {
+  color: #30a47d;
+  font-weight: bold;
+}
+
+.container-info .column > div {
+  margin-bottom: 10px;
+}
+
